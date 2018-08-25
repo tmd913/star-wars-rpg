@@ -1,0 +1,101 @@
+body {
+    background: url("../images/background.png");
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 80px;
+    color: #000000;
+    font-weight: 700;
+    text-shadow: -1px 0 #FFD700, 0 1px #FFD700, 1px 0 #FFD700, 0 -1px #FFD700;
+}
+
+h2 {
+    border-radius: 10px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.character-container, 
+.current-character-container,
+#battle-container {
+    text-align: center;
+}
+
+.character {
+    height: 100px;
+    width: 150px;
+}
+
+.character-container, 
+.current-character-container, 
+#attack-container {
+    border-radius: 20px;
+}
+
+#battle-container {
+    margin-top: 50px;
+}
+
+.character-text {
+    font-size: 18px;
+}
+
+.current-character {
+    height: 200px;
+    width: 300px;
+}
+
+#sabers {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 100px;
+}
+
+#luke {
+    width: 70px;
+}
+
+#maul {
+    width: 80px;
+}
+
+.light {
+    background-color: #ffffff;
+    border: solid rgba(40, 25, 199, 0.822) 5px;
+}
+
+.dark {
+    background-color: #ffffff;
+    border: solid #ed2939d7 5px;
+}
+
+#light-side-container h2, #dark-side-container h2 {
+    margin-bottom: 20px;
+}
+
+#message {
+    margin-top: 30px;
+    font-size: 40px;
+    color: #000000;
+    font-weight: 700;
+    text-shadow: -1px 0 #FFD700, 0 1px #FFD700, 1px 0 #FFD700, 0 -1px #FFD700;
+}
+
+h3 {
+    background-color: #FFD700;
+}
+
+.character-name {
+    border-top-left-radius: 15px; 
+    border-top-right-radius: 15px; 
+}
+
+.character-hp {
+    border-bottom-left-radius: 15px; 
+    border-bottom-right-radius: 15px; 
+    margin-bottom: 0;
+}

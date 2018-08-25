@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Star Wars RPG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>Star Wars RPG</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 character-options" id="light-side-container">
+                <h2 class="light">Light Side</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="character-container light">
+                            <h3 class="character-text character-name">Luke Skywalker</h3>
+                            <img class="character" id="luke" src="./assets/images/luke.png" alt="luke">
+                            <h3 class="character-text character-hp">HP: 120</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="character-container light">
+                            <h3 class="character-text character-name">Obi Wan Kenobi</h3>
+                            <img class="character" src="./assets/images/obi.png" alt="obi">
+                            <h3 class="character-text character-hp">HP: 140</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="character-container light">
+                            <h3 class="character-text character-name">Yoda</h3>
+                            <img class="character" src="./assets/images/yoda.png" alt="yoda">
+                            <h3 class="character-text character-hp">HP: 170</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 character-options" id="dark-side-container">
+                <h2 class="dark">Dark Side</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="character-container dark">
+                            <h3 class="character-text character-name">Darth Maul</h3>
+                            <img class="character" id="maul" src="./assets/images/maul.png" alt="maul">
+                            <h3 class="character-text character-hp">HP: 130</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="character-container dark">
+                            <h3 class="character-text character-name">Darth Sidious</h3>
+                            <img class="character" src="./assets/images/sidious.png" alt="sidious">
+                            <h3 class="character-text character-hp">HP: 150</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="character-container dark">
+                            <h3 class="character-text character-name">Darth Vader</h3>
+                            <img class="character" src="./assets/images/vader.png" alt="vader">
+                            <h3 class="character-text character-hp">HP: 180</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="battle-container">
+            <div class="col-md-5">
+                <div class="current-character-container light">
+                    <h3 class="current-character-text character-name">Yoda</h3>
+                    <img class="current-character" src="./assets/images/yoda.png" alt="hero">
+                    <h3 class="current-character-text character-hp">HP: 170</h3>
+                </div>
+            </div>
+
+            <div class="col-md-2" id="attack-container">
+                <img id="sabers" src="./assets/images/sabers.png" alt="luke">
+            </div>
+
+            <div class="col-md-5">
+                <div class="current-character-container dark">
+                    <h3 class="current-character-text character-name">Darth Vader</h3>
+                    <img class="current-character" src="./assets/images/vader.png" alt="villain">
+                    <h3 class="current-character-text character-hp">HP: 180</h3>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="message">You defeated Darth Vader. Choose your next opponent.</h2>
+    </div>
+
+    <script src="./assets/javascript/game.js"></script>
+</body>
+
+</html>
