@@ -56,7 +56,11 @@ h1, h2 {
 }
 
 #luke {
-    width: 70px;
+    width: 60px;
+}
+
+#obi {
+    width: 80px;
 }
 
 #maul {
@@ -98,4 +102,21 @@ h3 {
     border-bottom-left-radius: 15px; 
     border-bottom-right-radius: 15px; 
     margin-bottom: 0;
+}
+
+.display-none {
+    display: none;
+}
+
+.character-damage {
+    background-color: #ffffff00;
+    color: #ff2b2b;
+    font-weight: 700;
+    top: 100px;
+    width: 475px;
+    font-size: 50px;
+}
+
+#battle-container .col-md-5 {
+    padding: 0;
 }

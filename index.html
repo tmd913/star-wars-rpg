@@ -19,10 +19,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 character-options" id="light-side-container">
-                <h2 class="light">Light Side</h2>
-                <div class="row">
+                <h2 class="light" id="light-header">Light Side</h2>
+                <div class="row display-none" id="light-side-characters">
                     <div class="col-md-4">
-                        <div class="character-container light">
+                        <div class="character-container light" id="luke-container">
                             <h3 class="character-text character-name">Luke Skywalker</h3>
                             <img class="character" id="luke" src="./assets/images/luke.png" alt="luke">
                             <h3 class="character-text character-hp">HP: 120</h3>
@@ -30,15 +30,15 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="character-container light">
+                        <div class="character-container light" id="obi-container">
                             <h3 class="character-text character-name">Obi Wan Kenobi</h3>
-                            <img class="character" src="./assets/images/obi.png" alt="obi">
+                            <img class="character" id="obi" src="./assets/images/obi.png" alt="obi">
                             <h3 class="character-text character-hp">HP: 140</h3>
                         </div>
                     </div>
 
                     <div class="col-md-4">
-                        <div class="character-container light">
+                        <div class="character-container light" id="yoda-container">
                             <h3 class="character-text character-name">Yoda</h3>
                             <img class="character" src="./assets/images/yoda.png" alt="yoda">
                             <h3 class="character-text character-hp">HP: 170</h3>
@@ -48,10 +48,10 @@
             </div>
 
             <div class="col-md-6 character-options" id="dark-side-container">
-                <h2 class="dark">Dark Side</h2>
-                <div class="row">
+                <h2 class="dark" id="dark-header">Dark Side</h2>
+                <div class="row display-none" id="dark-side-characters">
                     <div class="col-md-4">
-                        <div class="character-container dark">
+                        <div class="character-container dark" id="maul-container">
                             <h3 class="character-text character-name">Darth Maul</h3>
                             <img class="character" id="maul" src="./assets/images/maul.png" alt="maul">
                             <h3 class="character-text character-hp">HP: 130</h3>
@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="character-container dark">
+                        <div class="character-container dark" id="sidious-container">
                             <h3 class="character-text character-name">Darth Sidious</h3>
                             <img class="character" src="./assets/images/sidious.png" alt="sidious">
                             <h3 class="character-text character-hp">HP: 150</h3>
@@ -67,7 +67,7 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="character-container dark">
+                        <div class="character-container dark" id="vader-container">
                             <h3 class="character-text character-name">Darth Vader</h3>
                             <img class="character" src="./assets/images/vader.png" alt="vader">
                             <h3 class="character-text character-hp">HP: 180</h3>
@@ -79,29 +79,33 @@
 
         <div class="row" id="battle-container">
             <div class="col-md-5">
-                <div class="current-character-container light">
-                    <h3 class="current-character-text character-name">Yoda</h3>
-                    <img class="current-character" src="./assets/images/yoda.png" alt="hero">
-                    <h3 class="current-character-text character-hp">HP: 170</h3>
+                <div class="current-character-container light display-none">
+                    <h3 class="current-character-text character-name"></h3>
+                    <img class="current-character" src="" alt="hero">
+                    <h3 class="current-character-text character-hp">HP: <span id="light-hp-display"></span></h3>
+                    <h3 class="character-damage position-absolute"></h3>
                 </div>
             </div>
 
-            <div class="col-md-2" id="attack-container">
+            <div class="col-md-2 display-none" id="attack-container">
                 <img id="sabers" src="./assets/images/sabers.png" alt="luke">
             </div>
 
             <div class="col-md-5">
-                <div class="current-character-container dark">
-                    <h3 class="current-character-text character-name">Darth Vader</h3>
-                    <img class="current-character" src="./assets/images/vader.png" alt="villain">
-                    <h3 class="current-character-text character-hp">HP: 180</h3>
+                <div class="current-character-container dark display-none">
+                    <h3 class="current-character-text character-name"></h3>
+                    <img class="current-character" src="" alt="villain">
+                    <h3 class="current-character-text character-hp">HP: <span id="dark-hp-display"></span></h3>
+                    <h3 class="character-damage position-absolute"></h3>
                 </div>
             </div>
         </div>
 
-        <h2 id="message">You defeated Darth Vader. Choose your next opponent.</h2>
+        <h2 id="message">Choose your side</h2>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <script src="./assets/javascript/game.js"></script>
 </body>
 
