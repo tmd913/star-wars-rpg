@@ -1,28 +1,5 @@
 // star wars rpg
 
-// game object 
-/*  
-    lightCharacterArray
-    darkCharacterArray
-    currentLightCharacter
-    currentDarkCharacter
-    multiplier
-    currentAttack
-    gameOver
-    methods:
-        changeCharacter(id)
-*/
-
-// character object 
-/*
-    name
-    imageSrc
-    imageAlt
-    hp
-    baseAttack
-    counter
-*/
-
 const lightNames = ["Luke Skywalker", "Obi Wan Kenobi", "Yoda"];
 const darkNames = ["Darth Maul", "Darth Sidious", "Darth Vader"];
 
@@ -38,11 +15,11 @@ const darkImgWidths = ["160px", "300px", "300px"];
 const lightHPs = [120, 140, 170];
 const darkHPs = [130, 150, 180];
 
-const lightBaseAttacks = [12, 10, 8];
-const darkBaseAttacks = [11, 9, 7];
+const lightBaseAttacks = [10, 9, 7];
+const darkBaseAttacks = [11, 6, 8];
 
-const lightCounters = [14, 16, 20];
-const darkCounters = [13, 15, 21];
+const lightCounters = [16, 19, 21];
+const darkCounters = [15, 14, 22];
 
 let lightCharacterArray = [];
 let darkCharacterArray = [];
@@ -149,11 +126,11 @@ function Game() {
         if (this.isLight) {
             $("#light-side-characters").addClass("display-none");
             $("#dark-side-characters").removeClass("display-none");
-            $("#message").text("Choose your opponent");
+            $("#message").text("Choose your opponent.");
         } else {
             let containerID = document.getElementById(id);
             $(containerID).addClass("display-none");
-            $("#message").text("");
+            $("#message").text("Click the lightsabers to attack.");
         }
 
         $("#attack-container").removeClass("display-none");
@@ -168,11 +145,11 @@ function Game() {
         if (this.isDark) {
             $("#dark-side-characters").addClass("display-none");
             $("#light-side-characters").removeClass("display-none");
-            $("#message").text("Choose your opponent");
+            $("#message").text("Choose your opponent.");
         } else {
             let containerID = document.getElementById(id);
             $(containerID).addClass("display-none");
-            $("#message").text("");
+            $("#message").text("Click the lightsabers to attack.");
         }
 
         $("#attack-container").removeClass("display-none");
@@ -196,7 +173,7 @@ function Game() {
             this.currentAttack = this.currentLightCharacter.baseAttack * this.multiplier;
             if (this.currentDarkCharacter.hp <= 0) {
                 $(".current-character-container.dark").addClass("display-none");
-                $("#message").text("You defeated " + this.currentDarkCharacter.name + "! Choose your next opponent");
+                $("#message").text("You defeated " + this.currentDarkCharacter.name + "! Choose your next opponent.");
                 this.currentDarkCharacter = "";
                 this.opponentsFaced++;
             } else if (this.currentLightCharacter.hp <= 0) {
@@ -211,7 +188,7 @@ function Game() {
                 $(".current-character-container.light > .character-damage").text("");
             }, 1000);
             this.currentLightCharacter.hp -= this.currentAttack;
-            if (this.currentDarkCharacter.hp > 0) {
+            if (this.currentLightCharacter.hp > 0) {
                 $(".current-character-container.dark > .character-damage").text("-" + this.currentLightCharacter.counter);
                 setTimeout(function () {
                     $(".current-character-container.dark > .character-damage").text("");
@@ -222,7 +199,7 @@ function Game() {
             this.currentAttack = this.currentDarkCharacter.baseAttack * this.multiplier;
             if (this.currentLightCharacter.hp <= 0) {
                 $(".current-character-container.light").addClass("display-none");
-                $("#message").text("You defeated " + this.currentLightCharacter.name + "! Choose your next opponent");
+                $("#message").text("You defeated " + this.currentLightCharacter.name + "! Choose your next opponent.");
                 this.currentLightCharacter = "";
                 this.opponentsFaced++;
             } else if (this.currentDarkCharacter.hp <= 0) {
@@ -263,6 +240,8 @@ function Game() {
                 $("#message").text("You defeated the Light Side!");
             }
         }
+
+        $(".new-game").removeClass("display-none");
     };
 }
 
@@ -292,24 +271,9 @@ $(".character-container").on("click", function (event) {
     }
 });
 
-$("#attack-container").on("click", function () {
+$("#sabers").on("click", function () {
     if (currentGame.currentLightCharacter !== "" && currentGame.currentDarkCharacter !== "") {
         currentGame.attackOpponent();
     }
-})
+});
 
-// function changeCharacter(id) {
-//     // switch (id) {
-//     //     case "luke-container"
-//     // }
-//     if (id === "luke-container") {
-//         $(".current-character-container.light > .character-name").text("Luke Skywalker");
-//         $(".current-character-container.light > .character-hp").text("HP: 120");
-//         $(".current-character-container.light > img").attr("src", "./assets/images/luke.png");
-//         $(".current-character-container.light > img").css("width", "120px");
-//         $(".current-character-container.light").removeClass("display-none");
-//         $("#dark-side-characters").removeClass("display-none");
-//         $("#light-side-characters").addClass("display-none");
-//         $("#message").text("Choose your opponent");
-//     }
-// }
