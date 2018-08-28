@@ -24,6 +24,7 @@ const darkCounters = [15, 14, 22];
 let lightCharacterArray = [];
 let darkCharacterArray = [];
 
+//construct two separate arrays of character objects, one for light side and one for dark side
 function createCharacterArrays() {
     for (let i = 0; i < lightNames.length; i++) {
         lightCharacterArray[i] = {
@@ -48,6 +49,7 @@ function createCharacterArrays() {
     }
 }
 
+// Game object constructor
 function Game() {
     this.lightCharacterArray = lightCharacterArray;
     this.darkCharacterArray = darkCharacterArray;
@@ -59,6 +61,7 @@ function Game() {
     this.isDark = false;
     this.opponentsFaced = 0;
     this.gameOver = false;
+    // changes game stats based on character selected
     this.changeCharacter = function (id) {
         switch (id) {
             case "luke-container":
@@ -116,6 +119,7 @@ function Game() {
                 break;
         }
     };
+    // change display for current light side character (DRY: make universal method for both sides using parameter values)
     this.changeLightCharacterDisplay = function (id) {
         $(".current-character-container.light > .character-name").text(this.currentLightCharacter.name);
         $("#light-hp-display").text(this.currentLightCharacter.hp);
@@ -135,6 +139,7 @@ function Game() {
 
         $("#attack-container").removeClass("display-none");
     };
+    // change display for current dark side character (DRY: make universal method for both sides using parameter values)
     this.changeDarkCharacterDisplay = function (id) {
         $(".current-character-container.dark > .character-name").text(this.currentDarkCharacter.name);
         $("#dark-hp-display").text(this.currentDarkCharacter.hp);
@@ -154,6 +159,7 @@ function Game() {
 
         $("#attack-container").removeClass("display-none");
     };
+    // update game stats based on current attack with multiplier and opponents counter attack (DRY: remove if else block and instead use parameter)
     this.attackOpponent = function () {
         if (this.isLight) {
             $("#message").text("You attacked " + this.currentDarkCharacter.name + " for " + this.currentAttack + " HP and received " + this.currentDarkCharacter.counter + " HP in damage.");
@@ -216,16 +222,7 @@ function Game() {
             this.endGame();
         }
     };
-    this.newGame = function () {
-        this.currentLightCharacter = "";
-        this.currentDarkCharacter = "";
-        this.multiplier = 1;
-        this.currentAttack = 0;
-        this.isLight = false;
-        this.isDark = false;
-        this.opponentsFaced = 0;
-        this.gameOver = false;
-    }
+    // displays relevant message
     this.endGame = function () {
         if (this.isLight) {
             if (this.gameOver) {
@@ -240,39 +237,44 @@ function Game() {
                 $("#message").text("You defeated the Light Side!");
             }
         }
-
-        $(".new-game").removeClass("display-none");
     };
 }
 
 createCharacterArrays();
 let currentGame = new Game();
 
+// enables character selection for light side
 $("#light-header").on("click", function () {
     if (!currentGame.isLight && !currentGame.isDark) {
         $("#light-side-characters").removeClass("display-none");
         $("#message").text("Choose your character");
         currentGame.isLight = true;
+        $("#theme")[0].play();
     }
 });
 
+// enables character selection for dark side
 $("#dark-header").on("click", function () {
     if (!currentGame.isLight && !currentGame.isDark) {
         $("#dark-side-characters").removeClass("display-none");
         $("#message").text("Choose your character");
         currentGame.isDark = true;
     }
+    $("#theme")[0].play();
 });
 
+// activates current character or opponent
 $(".character-container").on("click", function (event) {
-    console.log(event.currentTarget.id);
     if ((currentGame.isLight && currentGame.currentDarkCharacter === "") || (currentGame.isDark && currentGame.currentLightCharacter === "")) {
         currentGame.changeCharacter(event.currentTarget.id);
     }
 });
 
+// attacks opponent
 $("#sabers").on("click", function () {
     if (currentGame.currentLightCharacter !== "" && currentGame.currentDarkCharacter !== "") {
+        $("#lightsabers")[0].currentTime = 0;
+        $("#lightsabers")[0].play();
         currentGame.attackOpponent();
     }
 });
