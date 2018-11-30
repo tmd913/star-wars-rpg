@@ -10,3 +10,4 @@ Choose your side, character, and opponent first. Then click the lightsabers to a
 
 Have fun!
 
+https://tmd913.github.io/star-wars-rpg/
